@@ -1,0 +1,629 @@
+/* ═══════════════════════════════════════════════════════════════
+   COLOUR WHEELS & TABLES THROUGH HISTORY — Historical Aesthetic
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=IM+Fell+English:ital@0;1&family=IM+Fell+DW+Pica+SC&display=swap');
+
+:root {
+  --parchment: #f0e2c4;
+  --parchment-light: #f7f0e0;
+  --parchment-dark: #e0cdaa;
+  --ink: #2a1f14;
+  --ink-light: #5c4a3a;
+  --ink-faded: #8a7560;
+  --accent: #8b4513;
+  --accent-light: #a0522d;
+  --border: #c4a87c;
+  --border-dark: #9e8565;
+  --shadow: rgba(42, 31, 20, 0.15);
+  --tab-active: #e8d5b4;
+  --tab-hover: #ecdcc0;
+  --control-bg: #f5ecd8;
+  --control-border: #c9b896;
+  --sidebar-width: 240px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 15px; }
+
+body {
+  font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  background: var(--parchment);
+  color: var(--ink);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(160, 130, 90, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(140, 110, 70, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(120, 100, 60, 0.05) 0%, transparent 50%);
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+
+.site-header {
+  text-align: center;
+  padding: 1rem 2rem 0.8rem;
+  border-bottom: 2px solid var(--border);
+  background: linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment) 100%);
+  position: relative;
+}
+
+.site-header::after {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 1px;
+  background: var(--border-dark);
+  margin: 0.6rem auto 0;
+}
+
+.site-title {
+  font-family: 'IM Fell DW Pica SC', 'IM Fell English', Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  font-weight: normal;
+}
+
+.site-subtitle {
+  font-family: 'IM Fell English', Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-faded);
+  margin-top: 0.15rem;
+}
+
+.site-inspired {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--ink-faded);
+  margin-top: 0.25rem;
+}
+
+.site-inspired a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.site-inspired a:hover {
+  text-decoration: underline;
+}
+
+/* ── App Layout (Sidebar + Content) ──────────────────────────── */
+
+.app-layout {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  position: relative;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────── */
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--parchment-dark);
+  border-right: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-dark) transparent;
+  z-index: 100;
+}
+
+.sidebar::-webkit-scrollbar { width: 5px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 3px; }
+
+/* Toggle area inside sidebar */
+.sidebar-toggle-area {
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(139, 119, 90, 0.08);
+}
+
+.sidebar-toggle-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+.sidebar-toggle-label input[type="checkbox"] {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  flex: 1;
+  padding: 0.4rem 0;
+}
+
+/* Century group headings */
+.nav-century {
+  padding: 0.5rem 0.8rem 0.25rem;
+  font-family: 'IM Fell DW Pica SC', Georgia, serif;
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(196, 168, 124, 0.3);
+  margin-top: 0.2rem;
+}
+
+.nav-century:first-child {
+  margin-top: 0;
+}
+
+/* Individual nav items */
+.nav-tab {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.4rem 0.8rem 0.4rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  text-align: left;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+  line-height: 1.3;
+}
+
+.nav-tab:hover {
+  background: var(--tab-hover);
+  color: var(--ink);
+  border-left-color: rgba(139, 69, 19, 0.3);
+}
+
+.nav-tab.active {
+  background: var(--parchment);
+  color: var(--ink);
+  font-weight: 600;
+  border-left-color: var(--accent);
+  box-shadow: inset 0 0 8px rgba(139, 119, 90, 0.06);
+}
+
+.nav-tab .tab-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nav-tab .tab-year {
+  font-size: 0.65rem;
+  color: var(--ink-faded);
+  font-style: italic;
+  flex-shrink: 0;
+}
+
+/* Hamburger button (hidden on desktop) */
+.sidebar-hamburger {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 200;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  background: var(--parchment);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 1px 1px 4px var(--shadow);
+}
+
+.sidebar-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: all 0.2s;
+}
+
+/* ── Main Content Area ──────────────────────────────────────── */
+
+#main-content {
+  flex: 1;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+/* ── Reference Panel (Original Image + Description) ─────────── */
+
+.reference-panel {
+  display: none;
+  background: var(--parchment-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  gap: 1.2rem;
+  align-items: flex-start;
+  box-shadow: inset 0 0 12px rgba(139, 119, 90, 0.08);
+}
+
+.reference-panel.visible {
+  display: flex;
+}
+
+.reference-panel img {
+  max-width: 280px;
+  max-height: 360px;
+  width: auto;
+  height: auto;
+  border: 2px solid var(--border-dark);
+  border-radius: 2px;
+  box-shadow: 2px 2px 8px var(--shadow);
+  flex-shrink: 0;
+  object-fit: contain;
+  background: #fff;
+}
+
+.reference-panel .ref-text {
+  flex: 1;
+  min-width: 180px;
+}
+
+.reference-panel .ref-title {
+  font-family: 'IM Fell DW Pica SC', Georgia, serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.reference-panel .ref-description {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.reference-panel .ref-source {
+  font-size: 0.7rem;
+  color: var(--ink-faded);
+  margin-top: 0.6rem;
+}
+
+.reference-panel .ref-source a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.reference-panel .ref-source a:hover {
+  text-decoration: underline;
+}
+
+/* ── Tool Container ────────────────────────────────────────── */
+
+.tool-container {
+  display: none;
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease;
+}
+
+.tool-container.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tool-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tool-name {
+  font-family: 'IM Fell DW Pica SC', 'IM Fell English', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+.tool-author {
+  font-style: italic;
+  color: var(--ink-faded);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.tool-description {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  margin-top: 0.4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* ── Controls ──────────────────────────────────────────────── */
+
+.controls-panel {
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.control-group label {
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+.control-group input[type="color"] {
+  width: 36px;
+  height: 28px;
+  border: 1px solid var(--border-dark);
+  border-radius: 3px;
+  cursor: pointer;
+  background: var(--parchment);
+  padding: 2px;
+}
+
+.control-group input[type="range"] {
+  width: 100px;
+  accent-color: var(--accent);
+}
+
+.control-group select {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--control-border);
+  background: var(--parchment-light);
+  color: var(--ink);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.control-group input[type="text"] {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--control-border);
+  background: var(--parchment-light);
+  color: var(--ink);
+  border-radius: 3px;
+  width: 120px;
+}
+
+.btn {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border-dark);
+  background: var(--parchment);
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--parchment-light);
+  border-color: var(--accent);
+}
+
+/* ── Canvas / Visualization Area ──────────────────────────── */
+
+.viz-area {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.viz-area canvas {
+  border: 1px solid var(--border);
+  background: var(--parchment-light);
+  border-radius: 2px;
+  box-shadow: 2px 2px 8px var(--shadow);
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Grid / Table styles ──────────────────────────────────── */
+
+.color-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--border-dark);
+  border: 2px solid var(--border-dark);
+  border-radius: 2px;
+  box-shadow: 2px 2px 8px var(--shadow);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.color-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  min-width: 70px;
+  min-height: 55px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.color-cell:hover {
+  transform: scale(1.05);
+  z-index: 2;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.color-cell .cell-name {
+  font-size: 0.6rem;
+  color: inherit;
+  text-align: center;
+  text-shadow: 0 0 3px rgba(255,255,255,0.5);
+  margin-top: 2px;
+}
+
+.color-cell .cell-hex {
+  font-size: 0.55rem;
+  opacity: 0.7;
+}
+
+/* ── Wheel common ──────────────────────────────────────────── */
+
+.wheel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Info panel ────────────────────────────────────────────── */
+
+.info-panel {
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: 4px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Tooltip ───────────────────────────────────────────────── */
+
+.tooltip {
+  position: fixed;
+  background: var(--ink);
+  color: var(--parchment-light);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 1000;
+  white-space: nowrap;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+/* ── Ornamental divider ────────────────────────────────────── */
+
+.ornament {
+  text-align: center;
+  color: var(--border-dark);
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  letter-spacing: 0.5em;
+}
+
+/* ── Swatch row ────────────────────────────────────────────── */
+.swatch-row {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.swatch:hover { transform: scale(1.15); z-index: 2; }
+
+/* ── Emotion / Label badges ────────────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  border: 1px solid var(--border);
+  margin: 0.15rem;
+  cursor: default;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100vh;
+    transition: left 0.3s ease;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    left: 0;
+    box-shadow: 4px 0 20px rgba(42, 31, 20, 0.3);
+  }
+
+  .sidebar-hamburger {
+    display: flex;
+  }
+
+  #main-content {
+    width: 100%;
+  }
+
+  .site-header {
+    padding-left: 3rem;
+  }
+
+  .tool-container { padding: 1rem; }
+  .controls-panel { padding: 0.6rem; gap: 0.5rem; }
+
+  .reference-panel { flex-direction: column; align-items: center; }
+  .reference-panel img { max-width: 100%; }
+}
+
+@media (max-width: 500px) {
+  .site-title { font-size: 1.1rem; }
+  .site-subtitle { font-size: 0.75rem; }
+  .tool-name { font-size: 1.2rem; }
+}

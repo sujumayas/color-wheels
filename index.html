@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colour Wheels, Charts & Tables Through History — Interactive Collection</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-title">Colour Wheels, Charts & Tables Through History</h1>
+    <p class="site-subtitle">An interactive collection of four centuries of colour exploration</p>
+    <p class="site-inspired">Inspired by: <a href="https://publicdomainreview.org/collection/colour-wheels-charts-and-tables-through-history/" target="_blank" rel="noopener">Public Domain Review</a></p>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-toggle-area">
+        <label class="sidebar-toggle-label">
+          <input type="checkbox" id="toggle-reference">
+          Show Original Reference
+        </label>
+      </div>
+      <nav class="sidebar-nav" id="nav-scroll"></nav>
+    </aside>
+
+    <!-- Hamburger for mobile -->
+    <button class="sidebar-hamburger" id="sidebar-hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Main Content -->
+    <main id="main-content"></main>
+  </div>
+
+  <!-- Core framework -->
+  <script src="js/app.js"></script>
+
+  <!-- Individual tools (modular — edit any one without affecting others) -->
+  <script src="js/tools/01-waller.js"></script>
+  <script src="js/tools/02-boutet.js"></script>
+  <script src="js/tools/03-gautier.js"></script>
+  <script src="js/tools/04-harris.js"></script>
+  <script src="js/tools/05-schaffer.js"></script>
+  <script src="js/tools/06-schiffermuller.js"></script>
+  <script src="js/tools/07-mayer.js"></script>
+  <script src="js/tools/08-lambert.js"></script>
+  <script src="js/tools/09-temperamentenrose.js"></script>
+  <script src="js/tools/10-goethe.js"></script>
+  <script src="js/tools/11-sowerby.js"></script>
+  <script src="js/tools/12-runge.js"></script>
+  <script src="js/tools/13-bezold.js"></script>
+  <script src="js/tools/14-babbitt.js"></script>
+  <script src="js/tools/15-maycock-simultaneous.js"></script>
+  <script src="js/tools/16-maycock-complementary.js"></script>
+  <script src="js/tools/17-thought-forms.js"></script>
+  <script src="js/tools/18-advertising.js"></script>
+  <script src="js/tools/19-ridgeway.js"></script>
+  <script src="js/tools/20-catalogue.js"></script>
+
+  <!-- Initialize after all tools are registered -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      ColorTools.init();
+      document.getElementById('toggle-reference').addEventListener('change', (e) => {
+        ColorTools.toggleReference(e.target.checked);
+      });
+      // Mobile hamburger toggle
+      document.getElementById('sidebar-hamburger').addEventListener('click', () => {
+        document.getElementById('sidebar').classList.toggle('open');
+      });
+      // Close sidebar on tool select (mobile)
+      document.getElementById('nav-scroll').addEventListener('click', (e) => {
+        if (e.target.closest('.nav-tab')) {
+          document.getElementById('sidebar').classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
