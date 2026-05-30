@@ -10,3 +10,5 @@ Open `index.html` in a browser to browse the collection.
 - **Colour Problems — Reanimated** — A reinterpretation of Emily Noyes Vanderpoel's 1902 manual, recast as four interactive studies.
 - **Shadows** — An exploration of how shadows take on colour.
 - **TOFU — the missing-glyph mascot** — An editorial tribute to the little box that appears when a font has no glyph.
+- **OP — the screen is not the artwork** — A study in perception after Riley, Vasarely and Cruz-Diez.
+- **Ceci n'est pas un site web** — A Magritte-flavoured offline page.
